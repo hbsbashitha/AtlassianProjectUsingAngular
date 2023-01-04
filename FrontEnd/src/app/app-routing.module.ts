@@ -4,14 +4,17 @@ import { Error404pageComponent } from './components/error404page/error404page.co
 import { LoginPageComponent } from './components/login-page/login-page.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './helpers/auth.guard';
 
+// const guard=()=> {return false};
 const routes: Routes = [
-  {path:'', redirectTo:'products',pathMatch:'full'},
   {path:'login', component: LoginPageComponent},
+  // {path:'login', component: LoginPageComponent},
+
   {path:'404error', component: Error404pageComponent},
   {path:'test', component: PopupModelComponent},
-  {path:'userDetails', component: UserDetailsPageComponent},
-
+  {path:'userDetails', component: UserDetailsPageComponent,canActivate:[ AuthGuard]},
+  { path: '**', component: Error404pageComponent },
 
 
 ];
