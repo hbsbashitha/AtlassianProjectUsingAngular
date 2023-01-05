@@ -12,11 +12,34 @@ export class UsersService {
   constructor(private http: HttpClient) { }
 
 
-  GetUsers(){
+   GetUsers(){
     return this.http.get('https://fakestoreapi.com/users');
   }
   GetUser(){
     return this.http.get('https://fakestoreapi.com/users/1');
   }
+
+  UserAuthentication(userName: any, password: any){
+    // console.log(userName);
+    // console.log(password);
+    var user=false;
+    // this.GetUser().subscribe((data:any)=>{
+    //   console.log(data);
+    //   if(userName=="test" && password=="test"){
+    //     localStorage.setItem('userToken',data.username);
+    //     user= true;
+    //   }
+    // }
+
+    // );
+
+    if(userName=="test" && password=="test"){
+      // localStorage.setItem('userToken',data.username);
+      user= true;
+    }
+    return user;
+  }
+
+
 
 }

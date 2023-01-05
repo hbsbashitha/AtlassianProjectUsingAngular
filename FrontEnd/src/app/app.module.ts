@@ -14,7 +14,12 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import {MatTableModule} from '@angular/material/table';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+// import { HttpModule } from '@angular/http';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 
+
+import { MatInputModule } from '@angular/material/input';
 
 
 @NgModule({
@@ -33,7 +38,12 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     MatSlideToggleModule,
     MatTableModule,
     MatFormFieldModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    // HttpModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
