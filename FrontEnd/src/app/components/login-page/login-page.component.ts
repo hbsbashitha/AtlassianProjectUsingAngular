@@ -19,6 +19,7 @@ export class LoginPageComponent {
     form!: FormGroup;
     loading = false;
     submitted = false;
+    error:any
     // private usersService: UsersService | undefined
 
 
@@ -37,7 +38,9 @@ export class LoginPageComponent {
             password: ['', Validators.required]
         });
 
-       
+
+
+
 
     }
 
@@ -46,48 +49,31 @@ export class LoginPageComponent {
     // convenience getter for easy access to form fields
     get f() { return this.form.controls; }
 
-    onSubmit() {
-        this.submitted = true;
-
-        // reset alerts on submit
-        // this.alertService.clear();
-
-        // stop here if form is invalid
-        if (this.form.invalid) {
-            return;
-        }
-
-        // console.log(this.f['username'].value);
-        // console.log(this.f['password'].value);
-
-//         if(this.usersService){
+     onSubmit() {
+      this.submitted = true;
 
 
-if(this.usersService.UserAuthentication(this.f['username'].value,this.f['password'].value)){
-                this.router.navigate(['/test']);
-            }
+      this.loading = true;
+        this.usersService.UserAuthentication(this.f['username'].value, this.f['password'].value)
+            .pipe()
+            .subscribe(
+                (data) => {
+                    // get return url from query parameters or default to home page
+                    // console.log(data.token);
+                    sessionStorage.setItem('token',data.token);
+                    sessionStorage.setItem('isLogin',"true");
+                    console.log(sessionStorage.getItem('token'));
+                    // location.reload()
+                    const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+                    this.router.navigateByUrl(returnUrl);
 
+                },
+                error => {
+                    this.loading = false;
+                    error=error.message
 
-
-    // this.usersService.UserAuthentication(this.f['username'].value,this.f['password'].value)
-
-
-
-
-        // this.loading = true;
-        // this.accountService.login(this.f.username.value, this.f.password.value)
-        //     .pipe(first())
-        //     .subscribe({
-        //         next: () => {
-        //             // get return url from query parameters or default to home page
-        //             const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
-        //             this.router.navigateByUrl(returnUrl);
-        //         },
-        //         error: error => {
-        //             this.alertService.error(error);
-        //             this.loading = false;
-        //         }
-        //     });
+                }
+            );
     }
 
 

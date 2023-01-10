@@ -15,31 +15,36 @@ export class UsersService {
    GetUsers(){
     return this.http.get('https://fakestoreapi.com/users');
   }
-  GetUser(){
+   GetUser(){
     return this.http.get('https://fakestoreapi.com/users/1');
   }
 
-  UserAuthentication(userName: any, password: any){
-    // console.log(userName);
-    // console.log(password);
-    var user=false;
-    // this.GetUser().subscribe((data:any)=>{
-    //   console.log(data);
-    //   if(userName=="test" && password=="test"){
-    //     localStorage.setItem('userToken',data.username);
-    //     user= true;
-    //   }
-    // }
+  public UserAuthentication(username: any, password: any){
+    // console.log(username)
+//     return this.http.post<any>('https://fakestoreapi.com/auth/login',{
 
-    // );
+//         username: username,
+//         password: password
 
-    if(userName=="test" && password=="test"){
-      // localStorage.setItem('userToken',data.username);
-      user= true;
-    }
-    return user;
+// });
+
+
+return this.http.post<any>('https://fakestoreapi.com/auth/login', { username, password })
+            .pipe(map(user => {
+                // store user details and jwt token in local storage to keep user logged in between page refreshes
+                sessionStorage.setItem('user', JSON.stringify(user));
+
+                return user;
+            }));
+
   }
 
+  public Logout(){
+    // remove user from local storage to log user out
+    sessionStorage.clear();
 
+  }
 
 }
+
+

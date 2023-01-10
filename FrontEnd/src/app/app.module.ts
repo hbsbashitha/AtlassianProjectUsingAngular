@@ -21,6 +21,8 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 import { MatInputModule } from '@angular/material/input';
 
+import { MatSortModule } from '@angular/material/sort';
+import { HomePageComponent } from './components/home-page/home-page.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,8 @@ import { MatInputModule } from '@angular/material/input';
     NavbarComponent,
     Error404pageComponent,
     PopupModelComponent,
-    UserDetailsPageComponent
+    UserDetailsPageComponent,
+    HomePageComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +46,8 @@ import { MatInputModule } from '@angular/material/input';
     ReactiveFormsModule,
     HttpClientModule,
     // HttpModule,
-    MatInputModule
+    MatInputModule,
+    MatSortModule
   ],
   providers: [],
   bootstrap: [AppComponent]

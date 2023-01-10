@@ -11,6 +11,7 @@ export interface UserData {
   username: string;
   firstName: string;
   city: string;
+  action:any[];
 }
 
 
@@ -23,7 +24,7 @@ export class UserDetailsPageComponent implements  OnInit {
 
 
 
-  displayedColumns: string[] = ['id', 'email', 'username', 'firstName', 'city'];
+  displayedColumns: string[] = ['id', 'email', 'username', 'firstName', 'city','action'];
   dataSource!: MatTableDataSource<UserData>;
   users: any[] = [];
 
@@ -32,6 +33,7 @@ export class UserDetailsPageComponent implements  OnInit {
 
   @ViewChild(MatPaginator, { static: false }) paginator!: MatPaginator;
   @ViewChild(MatSort, { static: false }) sort!: MatSort;
+test: any;
 
   constructor(private usersService: UsersService) {
 
@@ -61,6 +63,18 @@ export class UserDetailsPageComponent implements  OnInit {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+
+
+  popup(user:  any){
+    console.log(user.phone);
+    this.test =JSON.stringify(user) ;
+    console.log(this.test);
+    for (var key of Object.keys(this.test)) {
+      console.log(key + " -> " + this.test[key])
+ }
+
+    console.log("test popup ")
   }
 }
 
