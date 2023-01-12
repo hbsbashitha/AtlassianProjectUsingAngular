@@ -16,7 +16,7 @@ import { HttpClient } from '@angular/common/http';
 export class LoginPageComponent {
 
 
-    form!: FormGroup;
+    login!: FormGroup;
     loading = false;
     submitted = false;
     error:any
@@ -33,7 +33,7 @@ export class LoginPageComponent {
 
 
     ngOnInit() {
-        this.form = this.formBuilder.group({
+        this.login = this.formBuilder.group({
             username: ['', Validators.required],
             password: ['', Validators.required]
         });
@@ -47,9 +47,12 @@ export class LoginPageComponent {
 
 
     // convenience getter for easy access to form fields
-    get f() { return this.form.controls; }
+    get f() { return this.login.controls; }
 
      onSubmit() {
+
+        console.log(this.f['username'].value)
+        console.log(this.f['password'].value)
       this.submitted = true;
 
 

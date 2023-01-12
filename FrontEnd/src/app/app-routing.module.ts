@@ -12,7 +12,6 @@ const routes: Routes = [
   {path:'', component: HomePageComponent},
 
   {path:'login', component: LoginPageComponent},
-
   {path:'404error', component: Error404pageComponent},
   {path:'test', component: PopupModelComponent,canActivate:[ AuthGuard]},
   {path:'userDetails', component: UserDetailsPageComponent,canActivate:[ AuthGuard]},

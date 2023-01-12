@@ -23,6 +23,8 @@ import { MatInputModule } from '@angular/material/input';
 
 import { MatSortModule } from '@angular/material/sort';
 import { HomePageComponent } from './components/home-page/home-page.component';
+import { FooterComponent } from './components/footer/footer.component';
+
 
 @NgModule({
   declarations: [
@@ -32,7 +34,8 @@ import { HomePageComponent } from './components/home-page/home-page.component';
     Error404pageComponent,
     PopupModelComponent,
     UserDetailsPageComponent,
-    HomePageComponent
+    HomePageComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
