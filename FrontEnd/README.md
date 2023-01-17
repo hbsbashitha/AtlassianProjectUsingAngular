@@ -1,27 +1,78 @@
-# FrontEnd
+# AtlassianProjectUsingAngular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.4.
+sample angular project with Atlassian theme
 
-## Development server
+## Prerequisites
+Node.js and npm (Node Package Manager) are installed on your computer. You can download Node.js and npm from [here](https://nodejs.org/en/).
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Angular CLI (Command Line Interface) installed on your computer. You can install it by running the command npm install -g @angular/cli in your terminal.
 
-## Code scaffolding
+```bash
+npm install -g @angular/cli
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Installation
 
-## Build
+Clone the repository to your local machine using the command git clone https://github.com/<username>/<repository-name>.git
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+```bash
+git clone https://github.com/hbsbashitha/AtlassianProjectUsingAngular.git
+```
 
-## Running unit tests
+Navigate to the project directory using the command cd FrontEnd
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```bash
+cd FrontEnd
+```
 
-## Running end-to-end tests
+Install the required packages by running the command npm install
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+```bash
+npm install
+```
 
-## Further help
+Run the command ng serve to start a local development server.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```bash
+ng serve
+```
+or 
+```bash
+npm start
+```
+
+Open your browser and go to http://localhost:4200/ to view the application
+
+
+
+## Deployment
+
+Run the command ng build --prod to build the project for production.
+
+```bash
+ng build --prod
+```
+
+## Built With
+Angular - The web framework used
+
+npm - Dependency Management
+[Other libraries or technologies that you used in your project]
+
+## Contributing
+
+Pull requests are welcome. For major changes, please open an issue first
+to discuss what you would like to change.
+
+Please make sure to update tests as appropriate.
+
+## Vesioning
+We use SemVer for versioning. For the versions available, see the tags on this repository.
+
+## Authors
+
+Bhashitha Ranasinghe - Initial work
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
