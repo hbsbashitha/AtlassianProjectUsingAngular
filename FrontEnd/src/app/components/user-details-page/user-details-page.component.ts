@@ -11,56 +11,53 @@ export interface UserData {
   username: string;
   firstName: string;
   city: string;
-  action:any[];
+  action: any[];
 }
-
 
 @Component({
   selector: 'app-user-details-page',
   templateUrl: './user-details-page.component.html',
-  styleUrls: ['./user-details-page.component.scss']
+  styleUrls: ['./user-details-page.component.scss'],
 })
-export class UserDetailsPageComponent implements  OnInit {
+export class UserDetailsPageComponent implements OnInit {
+  //init table columns
+  displayedColumns: string[] = [
+    'id',
+    'email',
+    'username',
+    'firstName',
+    'city',
+    'action',
+  ];
 
-
-
-  displayedColumns: string[] = ['id', 'email', 'username', 'firstName', 'city','action'];
+  //init table data source
   dataSource!: MatTableDataSource<UserData>;
+
+  //init variables
   users: any[] = [];
-
-
-
-
-  @ViewChild(MatPaginator, { static: false }) paginator!: MatPaginator;
-  @ViewChild(MatSort, { static: false }) sort!: MatSort;
-
   userDetails: any;
   address: any;
   phoneNumber: any;
   name: any;
 
+  @ViewChild(MatPaginator, { static: false }) paginator!: MatPaginator;
+  @ViewChild(MatSort, { static: false }) sort!: MatSort;
 
-
-  constructor(private usersService: UsersService) {
-
-  }
-
+  constructor(private usersService: UsersService) {}
 
   ngOnInit() {
+    //retrieve users from the api
     this.usersService.GetUsers().subscribe((data: any) => {
       console.log(data);
       this.users = data;
       this.dataSource = new MatTableDataSource(this.users);
 
       this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
-    }
-
-    );
+      this.dataSource.sort = this.sort;
+    });
   }
 
-
-
+  //filter table section
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
@@ -71,23 +68,21 @@ export class UserDetailsPageComponent implements  OnInit {
     }
   }
 
-
-  popup(user:  any){
+  //popup section
+  popup(user: any) {
     console.log(user.phone);
-    this.userDetails =JSON.stringify(user.address) ;
-    this.address =JSON.stringify(user.address) ;
-    this.phoneNumber =JSON.stringify(user.phone) ;
-    this.name =JSON.stringify(user.name) ;
+    this.userDetails = JSON.stringify(user.address);
+    this.address = JSON.stringify(user.address);
+    this.phoneNumber = JSON.stringify(user.phone);
+    this.name = JSON.stringify(user.name);
 
+    //use for testings
 
-    console.log(this.userDetails);
-    for (var key of Object.keys(this.userDetails)) {
-      console.log(key + " -> " + this.userDetails[key])
- }
+    //     console.log(this.userDetails);
+    //     for (var key of Object.keys(this.userDetails)) {
+    //       console.log(key + " -> " + this.userDetails[key])
+    //  }
 
-    console.log("test popup ")
+    //     console.log("test popup ")
   }
 }
-
-
-

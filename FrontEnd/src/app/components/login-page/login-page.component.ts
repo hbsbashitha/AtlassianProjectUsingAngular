@@ -33,6 +33,7 @@ export class LoginPageComponent {
 
 
     ngOnInit() {
+      //validation   for login form
         this.form = this.formBuilder.group({
             username: ['', Validators.required],
             password: ['', Validators.required]

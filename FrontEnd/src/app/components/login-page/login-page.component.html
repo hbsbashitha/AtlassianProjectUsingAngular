@@ -2,43 +2,47 @@
   <div class="container-fluid h-custom">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col-md-9 col-lg-6 col-xl-5">
-        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp" class="img-fluid"
-          alt="Sample image">
+        <img
+          src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+          class="img-fluid"
+          alt="Sample image"
+        />
       </div>
       <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-
-
+        <!-- login form -->
         <form [formGroup]="form" (ngSubmit)="onSubmit()">
           <div class="mb-3">
             <label class="form-label">Username</label>
-            <input required type="text" formControlName="username" class="form-control"
-               />
-            <div *ngIf="submitted " class="invalid-feedback">
+            <input
+              required
+              type="text"
+              formControlName="username"
+              class="form-control"
+            />
+            <div *ngIf="submitted" class="invalid-feedback">
               <div *ngIf="this.f['username'].invalid">Username is required</div>
             </div>
           </div>
           <div class="mb-3">
             <label class="form-label">Password</label>
-            <input type="password" formControlName="password" class="form-control"
-              />
-            <!-- <div *ngIf="submitted " class="invalid-feedback">
-              <div *ngIf="this.f['password']==undefined">Password is required</div>
-            </div> -->
-
+            <input
+              type="password"
+              formControlName="password"
+              class="form-control"
+            />
           </div>
           <div>
             <button [disabled]="loading" class="btn btn-primary">
-              <span *ngIf="loading" class="spinner-border spinner-border-sm me-1"></span>
+              <span
+                *ngIf="loading"
+                class="spinner-border spinner-border-sm me-1"
+              ></span>
               Login
             </button>
             <a routerLink="../register" class="btn btn-link">Register</a>
           </div>
         </form>
-
-
-
       </div>
     </div>
   </div>
-
 </section>
