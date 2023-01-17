@@ -33,7 +33,13 @@ export class UserDetailsPageComponent implements  OnInit {
 
   @ViewChild(MatPaginator, { static: false }) paginator!: MatPaginator;
   @ViewChild(MatSort, { static: false }) sort!: MatSort;
-test: any;
+
+  userDetails: any;
+  address: any;
+  phoneNumber: any;
+  name: any;
+
+
 
   constructor(private usersService: UsersService) {
 
@@ -68,10 +74,15 @@ test: any;
 
   popup(user:  any){
     console.log(user.phone);
-    this.test =JSON.stringify(user) ;
-    console.log(this.test);
-    for (var key of Object.keys(this.test)) {
-      console.log(key + " -> " + this.test[key])
+    this.userDetails =JSON.stringify(user.address) ;
+    this.address =JSON.stringify(user.address) ;
+    this.phoneNumber =JSON.stringify(user.phone) ;
+    this.name =JSON.stringify(user.name) ;
+
+
+    console.log(this.userDetails);
+    for (var key of Object.keys(this.userDetails)) {
+      console.log(key + " -> " + this.userDetails[key])
  }
 
     console.log("test popup ")
