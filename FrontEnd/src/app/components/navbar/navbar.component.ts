@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { UsersService } from './../../services/users.service';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-navbar',
@@ -6,5 +7,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent {
+
+  user=sessionStorage.getItem('token')
+  isLogin = sessionStorage.getItem('isLogin')
+
+  constructor(private  UsersService:UsersService) {
+  }
+
+  logOut(){
+    this.UsersService.Logout()
+    location.reload()
+  }
 
 }
